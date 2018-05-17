@@ -9,12 +9,11 @@ public class ShapeCollector {
 
     private ArrayList<Shape> shapes = new ArrayList<>();
 
-   public ShapeCollector(String getShapeName, double getField){
+   public ShapeCollector(Shape shape){
         this.shape = shape;
    }
 
     public void addFigure(Shape shape){
-        ShapeCollector collector = new ShapeCollector();
         shapes.add(shape);
     }
 
@@ -27,10 +26,8 @@ public class ShapeCollector {
     }
 
     public void showFigures(){
-        Shape collector = new Shape();
-        shapes.show(shapes);
-        
-        //System.out.println(shape.show());
+        for(Shape figure: shapes)
+        System.out.println(figure);
     }
 
 
