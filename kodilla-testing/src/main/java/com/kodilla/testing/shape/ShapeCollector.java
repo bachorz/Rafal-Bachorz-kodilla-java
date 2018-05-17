@@ -9,10 +9,6 @@ public class ShapeCollector {
 
     private ArrayList<Shape> shapes = new ArrayList<>();
 
-   public ShapeCollector(Shape shape){
-        this.shape = shape;
-   }
-
     public void addFigure(Shape shape){
         shapes.add(shape);
     }
