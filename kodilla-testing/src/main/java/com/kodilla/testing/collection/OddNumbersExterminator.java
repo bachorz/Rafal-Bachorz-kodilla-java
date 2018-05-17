@@ -4,11 +4,11 @@ package com.kodilla.testing.collection;
 import java.util.*;
 
 class OddNumbersExterminator {
-
+    ArrayList<Integer> even;
 
 
     public ArrayList exterminate(ArrayList<Integer> numbers) {
-        ArrayList<Integer> even = null;
+
         even = new ArrayList<Integer>();
 
         for(Integer number: numbers ){
