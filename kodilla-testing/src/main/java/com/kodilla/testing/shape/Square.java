@@ -12,12 +12,12 @@ public class Square implements Shape {
         this.field = field;
     }
 
-    public String getShapeName() {
-        return shapeName;
+    public void getShapeName() {
+        System.out.println("square");
     }
 
     public double getField() {
-        return field;
+        return 5.40;
     }
 
     @Override
@@ -33,13 +33,5 @@ public class Square implements Shape {
     public int hashCode() {
 
         return Objects.hash(shapeName, field);
-    }
-
-    @Override
-    public String toString() {
-        return "Square{" +
-                "shapeName='" + shapeName + '\'' +
-                ", field=" + field +
-                '}';
     }
 }
