@@ -70,7 +70,6 @@ public class ForumUser {
         }
         return result;
     }
-    //}
 
     public String getName() {
         return name;
