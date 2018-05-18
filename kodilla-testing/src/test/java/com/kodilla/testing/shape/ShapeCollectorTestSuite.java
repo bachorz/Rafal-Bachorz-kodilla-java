@@ -26,7 +26,7 @@ public class ShapeCollectorTestSuite {
         ShapeCollector collector = new ShapeCollector(new Square());
 
         //When
-        collector.addFigure(new Square("square",8.80));
+        collector.addFigure(new Square();
 
         //Then
         Assert.assertEquals(1,collector.getShapesQuantity());
