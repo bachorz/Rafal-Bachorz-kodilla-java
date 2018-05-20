@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Circle implements Shape{
 
-    String shapeName;
-    double field;
+    private String shapeName;
+    private double field;
 
     public Circle(String shapeName, double field){
         this.shapeName = shapeName;
@@ -13,10 +13,9 @@ public class Circle implements Shape{
     }
 
 
-    public void getShapeName() {
-        System.out.println("circle");
+    public String getShapeName() {
+        return "circle";
     }
-
 
     public double getField(){
         return 3.66;
@@ -33,7 +32,6 @@ public class Circle implements Shape{
 
     @Override
     public int hashCode() {
-
         return Objects.hash(shapeName, field);
     }
 }

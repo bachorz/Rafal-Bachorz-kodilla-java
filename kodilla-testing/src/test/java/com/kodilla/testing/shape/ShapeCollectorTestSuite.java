@@ -23,10 +23,10 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testaddFigure(Shape shape) {
         //Given
-        ShapeCollector collector = new ShapeCollector(new Square());
+        ShapeCollector collector = new ShapeCollector(new Square("square", 8.00));
 
         //When
-        collector.addFigure(new Square();
+        collector.addFigure(new Square("square", 8.00));
 
         //Then
         Assert.assertEquals(1,collector.getShapesQuantity());

@@ -4,8 +4,8 @@ import java.util.Objects;
 
 class Triangle implements Shape {
 
-    String shapeName;
-    double field;
+    private String shapeName;
+    private double field = 6.20;
 
     public Triangle(String shapeName, double field){
     this.shapeName = shapeName;
@@ -13,12 +13,12 @@ class Triangle implements Shape {
     }
 
 
-    public void getShapeName() {
-        System.out.println("triangle");
+    public String getShapeName() {
+        return "triangle";
     }
 
     public double getField(){
-        return 2.30;
+        return field;
     }
 
     @Override
