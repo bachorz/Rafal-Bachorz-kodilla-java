@@ -10,7 +10,7 @@ public class ShapeCollector {
 
 
     public ShapeCollector(){
-     }
+       }
 
     public void addFigure(Shape shape){
         shapes.add(shape);
@@ -36,7 +36,7 @@ public class ShapeCollector {
 
     public void showFigures(){
         for(Shape figure: shapes) {
-            System.out.println(figure);
+            System.out.println("The list of figures consists of: " + figure);
         }
     }
 

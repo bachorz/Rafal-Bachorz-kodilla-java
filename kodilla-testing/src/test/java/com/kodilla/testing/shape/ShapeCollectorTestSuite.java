@@ -21,14 +21,50 @@ public class ShapeCollectorTestSuite {
     }
 
     @Test
-    public void testaddFigure(Shape shape) {
+    public void testAddFigure() {
         //Given
-        ShapeCollector collector = new ShapeCollector(new Square("square", 8.00));
+        ShapeCollector collector = new ShapeCollector();
 
         //When
-        collector.addFigure(new Square("square", 8.00));
+        collector.addFigure(new Square(8.00));
 
         //Then
         Assert.assertEquals(1,collector.getShapesQuantity());
+    }
+
+    @Test
+    public void testRemoveFigure(){
+        //Given
+        ShapeCollector collector = new ShapeCollector();
+        Square square = new Square(8.00);
+        collector.addFigure(new Square(8.00));
+        //When
+        boolean result = collector.removeFigure(square);
+
+        //Then
+        Assert.assertEquals(0,collector.getShapesQuantity());
+    }
+
+    @Test
+    public void testGetFigure(){
+        //Given
+        ShapeCollector collector = new ShapeCollector();
+        Shape shape = new Square(8.00);
+        collector.addFigure(new Square(8.00));
+
+        //When
+        Shape square;
+        square = collector.getFigure(0);
+
+        //Then
+        Assert.assertEquals(shape, square);
+    }
+    @Test
+    public void testShowFigures(){
+        ShapeCollector collector = new ShapeCollector();
+        Shape shape = new Square(8.00);
+        collector.addFigure(new Square(8.00));
+
+        collector.showFigures();
     }
 }

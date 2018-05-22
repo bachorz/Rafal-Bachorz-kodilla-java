@@ -4,11 +4,9 @@ import java.util.Objects;
 
 public class Square implements Shape {
 
-    private String shapeName;
     private double a;
 
-    public Square(String shapeName, double a) {
-        this.shapeName = shapeName;
+    public Square(double a) {
         this.a = a;
     }
 
@@ -25,12 +23,12 @@ public class Square implements Shape {
         if (this == o) return true;
         if (!(o instanceof Square)) return false;
         Square square = (Square) o;
-        return Double.compare(square.a, a) == 0 &&
-                Objects.equals(shapeName, square.shapeName);
+        return Double.compare(square.a, a) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shapeName, a);
+
+        return Objects.hash(a);
     }
 }

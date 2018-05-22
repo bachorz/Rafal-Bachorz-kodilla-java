@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class Circle implements Shape{
 
-    private String shapeName;
-    private double field;
+    private double pi = 3.14;
+    private double a;
 
-    public Circle(String shapeName, double field){
-        this.shapeName = shapeName;
-        this.field = field;
+
+    public Circle(double a){
+        this.a = a;
     }
 
 
@@ -18,7 +18,7 @@ public class Circle implements Shape{
     }
 
     public double getField(){
-        return 3.66;
+        return pi * a;
     }
 
     @Override
@@ -26,12 +26,13 @@ public class Circle implements Shape{
         if (this == o) return true;
         if (!(o instanceof Circle)) return false;
         Circle circle = (Circle) o;
-        return Double.compare(circle.field, field) == 0 &&
-                Objects.equals(shapeName, circle.shapeName);
+        return Double.compare(circle.pi, pi) == 0 &&
+                Double.compare(circle.a, a) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shapeName, field);
+
+        return Objects.hash(pi, a);
     }
 }
