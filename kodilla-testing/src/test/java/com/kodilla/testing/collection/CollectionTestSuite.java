@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CollectionTestSuite {
 
@@ -36,19 +37,11 @@ public class CollectionTestSuite {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        ArrayList<Integer> listOfNumbers= new ArrayList<Integer>();
-        listOfNumbers.add(1);
-        listOfNumbers.add(4);
-        listOfNumbers.add(3);
-        listOfNumbers.add(5);
-        listOfNumbers.add(6);
-        listOfNumbers.add(15);
-        listOfNumbers.add(18);
+        ArrayList<Integer> listOfNumbers= new ArrayList<>();
+        listOfNumbers.addAll(Arrays.asList(1, 4, 3, 5, 6, 15, 18));
 
         ArrayList<Integer> correctList = new ArrayList<>();
-        correctList.add(4);
-        correctList.add(6);
-        correctList.add(18);
+        correctList.addAll(Arrays.asList(4, 6, 18));
 
         ArrayList<Integer> resultB = oddNumbersExterminator.exterminate(listOfNumbers);
         System.out.println("The result of the extermination test: " + resultB);
