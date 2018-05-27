@@ -21,9 +21,7 @@ public class ShapeCollector {
     }
 
     public boolean removeFigure(Shape shape){
-        //boolean result = false;
           shapes.remove(shape);
-          //result = true;
           return true;
     }
 
