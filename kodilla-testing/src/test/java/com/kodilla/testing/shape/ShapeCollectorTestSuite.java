@@ -42,6 +42,7 @@ public class ShapeCollectorTestSuite {
         boolean result = collector.removeFigure(square);
 
         //Then
+       //Assert.assertTrue(result);
         Assert.assertEquals(0,collector.getShapesQuantity());
     }
 
@@ -66,5 +67,34 @@ public class ShapeCollectorTestSuite {
         collector.addFigure(new Square(8.00));
 
         collector.showFigures();
+    }
+
+    @Test
+    public void testGetFigureOutOfRange(){
+        ShapeCollector collector = new ShapeCollector();
+        Shape shape = new Square(8.00);
+        collector.addFigure(new Square(8.00));
+
+        //When
+        Shape square;
+        square = collector.getFigure(1000000);
+
+        //Then
+        Assert.assertNotEquals(shape, square);
+    }
+
+    @Test
+    public void testRemoveFigureOutCollection(){
+        //Given
+        ShapeCollector collector = new ShapeCollector();
+        Square square = new Square(8.00);
+        collector.addFigure(new Square(8.00));
+        Circle circle = new Circle(5.21);
+
+        //When
+        boolean result = collector.removeFigure(circle);
+
+        //Then
+        Assert.assertEquals(1,collector.getShapesQuantity());
     }
 }
