@@ -12,6 +12,7 @@ public class CollectionTestSuite {
 
     @Before
     public void before(){
+
         System.out.println("Test Case: begin");
     }
 

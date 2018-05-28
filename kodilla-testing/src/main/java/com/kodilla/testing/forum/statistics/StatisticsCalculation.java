@@ -1,16 +1,14 @@
+//<editor-fold desc="Description">
 package com.kodilla.testing.forum.statistics;
 
 public class StatisticsCalculation {
 
-  //  private Statistics statistics;
-
     private int numberOfUser;
     private int numberOfPosts;
     private int numberOfComments;
-    public double averageNumberOfPostsPerUser;
-    public double averageNumberOfCommentsPerUser;
-    public double averageNumberOfCommentsPerPost;
-
+    private double averageNumberOfPostsPerUser;
+    private double averageNumberOfCommentsPerUser;
+    private double averageNumberOfCommentsPerPost;
 
     public void calculateAdvStatistics(Statistics statistics){
         numberOfUser = statistics.usersNames().size();
@@ -18,13 +16,9 @@ public class StatisticsCalculation {
         numberOfComments = statistics.commentsCount();
         if(numberOfUser>0) {
             averageNumberOfPostsPerUser = numberOfPosts /(double) numberOfUser;
+            averageNumberOfCommentsPerUser = numberOfComments /(double) numberOfUser;
         }else{
             averageNumberOfPostsPerUser = 0;
-        }
-
-        if(numberOfUser>0) {
-            averageNumberOfCommentsPerUser = numberOfComments /(double) numberOfUser;
-        }else {
             averageNumberOfCommentsPerUser = 0;
         }
 
@@ -59,7 +53,8 @@ public class StatisticsCalculation {
         return averageNumberOfCommentsPerPost;
     }
 
-   public void showStatistics(){ System.out.println("Number of users: " + numberOfUser);
+    public void showStatistics(){
+        System.out.println("Number of users: " + numberOfUser);
         System.out.println("Number of posts: " + numberOfPosts);
         System.out.println("Number of comments: " + numberOfComments);
         System.out.println("Average number of posts per user: " + averageNumberOfPostsPerUser);
@@ -67,3 +62,5 @@ public class StatisticsCalculation {
         System.out.println("Average number of comments per posts: " + numberOfUser);
     }
 }
+//</editor-fold>
+

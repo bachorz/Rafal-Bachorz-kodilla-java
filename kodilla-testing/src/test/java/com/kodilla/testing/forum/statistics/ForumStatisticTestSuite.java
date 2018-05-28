@@ -1,3 +1,4 @@
+//region Description
 package com.kodilla.testing.forum.statistics;
 
 
@@ -12,10 +13,19 @@ import static org.mockito.Mockito.when;
 
 public class ForumStatisticTestSuite{
 
+    private List<String> usersGenerator(int usersQuantity) {
+        ArrayList<String> listUsers = new ArrayList<>();
+        for (int i = 0; i < usersQuantity; i++) {
+            listUsers.add("a2" + 1);
+        }
+        return listUsers;
+    }
+
+    Statistics statisticsMock = mock(Statistics.class);
+
     @Test
     public void testCalculateUsers0() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         List<String> listMock = new ArrayList<>();
 
         when(statisticsMock.usersNames()).thenReturn(listMock);
@@ -32,7 +42,6 @@ public class ForumStatisticTestSuite{
     @Test
     public void testCalculatePostsThousand(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int postsMockThousand = 1000;
 
         when(statisticsMock.postsCount()).thenReturn(postsMockThousand);
@@ -49,7 +58,6 @@ public class ForumStatisticTestSuite{
     @Test
     public void testCalculateCommentsZero(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int commentsMockZero = 0;
 
         when(statisticsMock.commentsCount()).thenReturn(commentsMockZero);
@@ -66,7 +74,6 @@ public class ForumStatisticTestSuite{
     @Test
     public void testCalculatePostsZero(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int postsMockZero = 0;
 
         when(statisticsMock.postsCount()).thenReturn(postsMockZero);
@@ -83,15 +90,11 @@ public class ForumStatisticTestSuite{
     @Test
     public void testCalculateUsersHundred(){
         //Given
-        Statistics statisticsMockHundred = mock(Statistics.class);
-        List<String> listMockHundred = new ArrayList<>();
-        for(int i=0; i<100; i++){
-            listMockHundred.add(new String("a2"+1));
-        }
+        List<String> hundredUsers = usersGenerator(100);
 
-        when(statisticsMockHundred.usersNames()).thenReturn(listMockHundred);
+        when(statisticsMock.usersNames()).thenReturn(hundredUsers);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation();
-        statisticsCalculation.calculateAdvStatistics(statisticsMockHundred);
+        statisticsCalculation.calculateAdvStatistics(statisticsMock);
 
         //When
         int usersHundred = statisticsCalculation.getNumberOfUser();
@@ -104,7 +107,6 @@ public class ForumStatisticTestSuite{
     @Test
     public void testCommentsLessThanPosts(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int commentsMock = 10;
         int postsMock = 33;
 
@@ -125,7 +127,6 @@ public class ForumStatisticTestSuite{
     @Test
     public void testMoreCommentsThanPosts(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int commentsMock = 55;
         int postsMock = 8;
 
@@ -146,14 +147,10 @@ public class ForumStatisticTestSuite{
     @Test
     public void testAverageNumberOfPostsPerUser(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> listMock = new ArrayList<>();
-        for(int i=0; i<12; i++){
-            listMock.add(new String("a2"+i));
-        }
+        List<String> twentyUsers = usersGenerator(12);
         int postsMock = 24;
 
-        when(statisticsMock.usersNames()).thenReturn(listMock);
+        when(statisticsMock.usersNames()).thenReturn(twentyUsers);
         when(statisticsMock.postsCount()).thenReturn(postsMock);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation();
         statisticsCalculation.calculateAdvStatistics(statisticsMock);
@@ -172,14 +169,10 @@ public class ForumStatisticTestSuite{
     @Test
     public void testAverageNumberOfCommentsPerUser(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> listMock = new ArrayList<>();
-        for(int i=0; i<100; i++){
-            listMock.add(new String("a2"+i));
-        }
+        List<String> fiftyUsers = usersGenerator(100);
         int commentsMock = 33;
 
-        when(statisticsMock.usersNames()).thenReturn(listMock);
+        when(statisticsMock.usersNames()).thenReturn(fiftyUsers);
         when(statisticsMock.commentsCount()).thenReturn(commentsMock);
         StatisticsCalculation statisticsCalculation = new StatisticsCalculation();
         statisticsCalculation.calculateAdvStatistics(statisticsMock);
@@ -198,7 +191,6 @@ public class ForumStatisticTestSuite{
     @Test
     public void testAverageNumberOfCommentsPerPost(){
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         int commentsMock = 121;
         int postsMock = 55;
 
@@ -217,25 +209,6 @@ public class ForumStatisticTestSuite{
         Assert.assertEquals(resultA, resultB,0.0000000001);
         System.out.println(resultA + "," + resultB);
     }
-
-    @Test
-    public void testShowStatistics(){
-
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> listMock = new ArrayList<>();
-        for(int i=0; i<100; i++){
-            listMock.add(new String("a2"+i));
-        }
-        int postsMock = 55;
-        int commentsMock = 33;
-
-        when(statisticsMock.usersNames()).thenReturn(listMock);
-        when(statisticsMock.commentsCount()).thenReturn(commentsMock);
-        when(statisticsMock.postsCount()).thenReturn(postsMock);
-        StatisticsCalculation statisticsCalculation = new StatisticsCalculation();
-       statisticsCalculation.calculateAdvStatistics(statisticsMock);
-
-        statisticsCalculation.showStatistics();
-
-    }
 }
+//endregion
+
