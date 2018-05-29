@@ -17,12 +17,12 @@ public class ShapeCollector {
     }
 
     public int getShapesQuantity(){
-               return shapes.size();
+        return shapes.size();
     }
 
     public boolean removeFigure(Shape shape){
-          shapes.remove(shape);
-          return true;
+
+        return shapes.remove(shape);
     }
 
     public Shape getFigure(int n) {
