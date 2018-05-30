@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.shape.ShapeCollectorTestSuite" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-05-29T16:58:42" hostname="hpdv7pavilion" time="0.008">
+  <properties/>
+  <testcase name="testShowFigures" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.003"/>
+  <testcase name="testRemoveFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testAddFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
+  <testcase name="testGetFigure" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.001"/>
+  <testcase name="testGetFigureOutOfRange" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.0"/>
+  <testcase name="testRemoveFigureOutCollection" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite" time="0.002"/>
+  <system-out><![CDATA[This is the beginning of tests.
+The test has been finished
+The list of figures consists of: com.kodilla.testing.shape.Square@4020001f
+The test has been finished
+The test has been finished
+The test has been finished
+The test has been finished
+The test has been finished
+All tests are finished.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

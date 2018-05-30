@@ -5,6 +5,7 @@ buildscript {
     repositories {
         mavenCentral()
     }
+
     dependencies {
         //External dependencies
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -24,7 +25,10 @@ repositories {
     mavenCentral()
 }
 
-
+subprojects {
+    jar { enabled = true }
+    bootJar { enabled = false }
+}
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('junit:junit:4.12')
