@@ -107,8 +107,8 @@ public class BoardTestSuite {
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        Double numbersOfDays = project.getTaskLists()
-                .stream().filter(inProgressTasks::contains)
+        Double numbersOfDays = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
                 .flatMap(n -> n.getTasks().stream())
                 .mapToDouble(t -> Period.between(t.getCreated(), LocalDate.now()).getDays()).sum();
 

@@ -10,14 +10,13 @@ public class ArrayOperationsTestSuite implements ArrayOperations{
 
         //Given
         int[] numbers = new int[20];
-
         for (int i = 0; i < 20; i++) {
-            numbers[i] = i +1;
+            numbers[i] = i+1;
         }
         //When
         double result = ArrayOperations.getAverage(numbers);
 
         //Then
-        Assert.assertEquals(9.5, result, 0.0001);
+        Assert.assertEquals(10.5, result, 0.0001);
     }
 }
