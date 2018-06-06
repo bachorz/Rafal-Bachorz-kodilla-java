@@ -89,7 +89,11 @@ public class BoardTestSuite {
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        long longTasks = project.getTaskLists().stream().filter(inProgressTasks::contains).flatMap(tl -> tl.getTasks().stream()).map(t -> t.getCreated()).filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0).count();
+        long longTasks = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains).flatMap(tl -> tl.getTasks().stream())
+                .map(t -> t.getCreated())
+                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
+                .count();
 
         //Then
         Assert.assertEquals(2, longTasks);
