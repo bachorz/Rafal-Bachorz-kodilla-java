@@ -4,10 +4,10 @@ public class Application {
 
     public static void main(String[] args) {
 
-        QuestionsToOrder questionsToOrder = new QuestionsToOrder();
-        OrderForm orderForm = questionsToOrder.questions();
+        OrderFactory questionsToOrder = new OrderFactory();
+        OrderForm orderForm = questionsToOrder.createOrder();
 
-        ProductOrderService productOrderService = new ProductOrderService(new SmsService(), new EshopService(), new EshopRepository()) ;
+        ProductOrderService productOrderService = new ProductOrderService(new SmsService(), new MaxShop(), new ConfirmOrder()) ;
         productOrderService.process(orderForm);
     }
 }

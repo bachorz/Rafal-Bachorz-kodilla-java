@@ -1,8 +1,7 @@
 package com.kodilla.good.patterns.challenges;
 
-public class EshopRepository {
+public interface EshopRepository {
 
-    public boolean createRental(Client client, Product product) {
-        return true;
-    }
+     boolean createSale(Client client, Product product);
+
 }

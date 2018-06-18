@@ -18,8 +18,8 @@ public class ProductOrderService {
         boolean isBought = eshopService.buy(orderForm.getClient(), orderForm.getProduct());
 
         if(isBought) {
-            informationService.inform(orderForm.getClient());
-            eshopRepository.createRental(orderForm.getClient(), orderForm.getProduct());
+            informationService.inform(orderForm.getClient(), orderForm.getProduct());
+            eshopRepository.createSale(orderForm.getClient(), orderForm.getProduct());
             return new EshopDto(orderForm.getClient(), true);
         } else {
             return new EshopDto(orderForm.getClient(), false);
