@@ -1,11 +1,10 @@
 package Food2Door.InformationService;
 
-import Food2Door.Manufacturer.Manufacturer;
-import Food2Door.Product;
+import Food2Door.Manufacturer.ProductInStock;
+import Food2Door.OrderCard;
 
 public interface InformationService {
 
-    void inform(Product product, Manufacturer manufacturer);
-
-    void informNegative(Product product, Manufacturer manufacturer);
+    void inform(OrderCard orderCard, ProductInStock productInStock);
+    void informNegativ();
 }

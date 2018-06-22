@@ -1,6 +1,5 @@
 package Food2Door.InformationService;
 
-import Food2Door.Product;
 import Food2Door.RecipientOfDelivery;
 
 public class TransferOfOrder {

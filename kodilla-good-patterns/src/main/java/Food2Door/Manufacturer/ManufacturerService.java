@@ -1,10 +1,12 @@
 package Food2Door.Manufacturer;
 
-import Food2Door.Product;
 import Food2Door.RecipientOfDelivery;
+
+import java.util.List;
 
 public interface ManufacturerService {
 
-    boolean implementation(Product product, Manufacturer manufacturer, RecipientOfDelivery recipientOfDelivery);
+    boolean process( Manufacturer manufacturer, RecipientOfDelivery recipientOfDelivery);
+
 
 }

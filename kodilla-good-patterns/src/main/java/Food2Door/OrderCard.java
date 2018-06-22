@@ -1,31 +1,24 @@
 package Food2Door;
 
-import Food2Door.Manufacturer.Manufacturer;
-
 public class OrderCard {
 
-    private int orderNumber;
-    private Product product;
-    private Manufacturer manufacturer;
+    private String productName;
+    private int quantityOfPieces ;
     private RecipientOfDelivery recipientOfDelivery;
 
-    public OrderCard(int orderNumber, Product product, Manufacturer manufacturer, RecipientOfDelivery recipientOfDelivery) {
-        this.orderNumber = orderNumber;
-        this.product = product;
-        this.manufacturer = manufacturer;
+
+    public OrderCard(String productName, int quantityOfPieces, RecipientOfDelivery recipientOfDelivery) {
+        this.productName = productName;
+        this.quantityOfPieces = quantityOfPieces;
         this.recipientOfDelivery = recipientOfDelivery;
     }
 
-    public int getOrderNumber() {
-        return orderNumber;
+    public String getProductName() {
+        return productName;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public Manufacturer getManufacturer() {
-        return manufacturer;
+    public int getQuantityOfPieces() {
+        return quantityOfPieces;
     }
 
     public RecipientOfDelivery getRecipientOfDelivery() {
@@ -34,6 +27,6 @@ public class OrderCard {
 
     @Override
     public String toString() {
-        return "OrderCard{" + "orderNumber=" + orderNumber + ", product=" + product + ", manufacturer=" + manufacturer + ", recipientOfDelivery=" + recipientOfDelivery + '}';
+        return "OrderCard{" + "productName='" + productName + '\'' + ", quantityOfPieces=" + quantityOfPieces + ", recipientOfDelivery=" + recipientOfDelivery + '}';
     }
 }

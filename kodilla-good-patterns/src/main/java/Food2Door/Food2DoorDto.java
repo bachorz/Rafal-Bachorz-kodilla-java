@@ -1,11 +1,11 @@
 package Food2Door;
 
-public class Dto {
+public class Food2DoorDto {
 
     private RecipientOfDelivery recipientOfDelivery;
     private boolean isOrdered;
 
-    public Dto(RecipientOfDelivery recipientOfDelivery, boolean isOrdered) {
+    public Food2DoorDto(RecipientOfDelivery recipientOfDelivery, boolean isOrdered) {
         this.recipientOfDelivery = recipientOfDelivery;
         this.isOrdered = isOrdered;
     }
@@ -18,5 +18,3 @@ public class Dto {
         return isOrdered;
     }
 }
-
-
