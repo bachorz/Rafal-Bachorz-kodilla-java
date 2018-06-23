@@ -27,7 +27,7 @@ public class ManufacturerSelection {
                 .limit(1)
                 .collect(Collectors.toList());
 
-//        if (result == null) {
+//        if (result != null) {
 //            return result;
 //
 //        } else {
