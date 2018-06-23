@@ -1,4 +1,4 @@
-package Food2Door;
+package food2Door;
 
 public class RecipientOfDelivery {
 

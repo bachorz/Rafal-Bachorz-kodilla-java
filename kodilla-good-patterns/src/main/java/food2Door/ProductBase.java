@@ -1,6 +1,6 @@
-package Food2Door;
+package food2Door;
 
-import Food2Door.Manufacturer.ProductInStock;
+import food2Door.manufacturer.ProductInStock;
 
 import java.util.*;
 
@@ -34,7 +34,7 @@ public class ProductBase {
         listHealthyShop.add(new ProductInStock("Tomatoes", "HealthyShop", 4.12, 5));
         listHealthyShop.add(new ProductInStock("Orange juice", "HealthyShop", 2.1, 8));
         listHealthyShop.add( new ProductInStock("Bananas", "HealthyShop", 5.50, 2));
-        listHealthyShop.add( new ProductInStock("Mineral water", "HealthyShop", 1.80, 12));
+        listHealthyShop.add( new ProductInStock("Mineral water", "HealthyShop", 1.80, 0));
         listHealthyShop.add(new ProductInStock("Tomato juice", "HealthyShop", 2.50, 12));
 
         Map<String, List<ProductInStock>> listOfProducers = new HashMap<>();
@@ -44,7 +44,6 @@ public class ProductBase {
 
         return listOfProducers;
     }
-
 }
 
 

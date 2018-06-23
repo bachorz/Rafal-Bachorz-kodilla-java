@@ -1,4 +1,4 @@
-package Food2Door.Manufacturer;
+package food2Door.manufacturer;
 
 public class ProductInStock {
 
@@ -34,4 +34,4 @@ public class ProductInStock {
 
     }
 
-}
+
