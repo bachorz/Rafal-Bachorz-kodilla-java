@@ -1,4 +1,4 @@
-package AviationCompany;
+package aviationCompany;
 
 public class FlightSearchParameters {
 

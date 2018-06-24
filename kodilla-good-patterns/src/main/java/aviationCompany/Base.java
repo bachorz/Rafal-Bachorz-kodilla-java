@@ -1,4 +1,4 @@
-package AviationCompany;
+package aviationCompany;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public final class Base {
     public Base() {
 
         listOfflights.add(new Flight("Gdansk", "Wroclaw", "Warszawa", "Monday"));
-        listOfflights.add(new Flight("Wroclaw", "Wroclaw", "non-stop flight", "Monday"));
+        listOfflights.add(new Flight("Wroclaw", "Warszawa", "non-stop flight", "Monday"));
         listOfflights.add(new Flight("Gdansk", "Wroclaw", "Krakow", "Tuesday"));
         listOfflights.add(new Flight("Gdansk", "Wroclaw", "non-stop flight", "Wednesday"));
         listOfflights.add(new Flight("Wroclaw", "Gdansk", "Krakow", "Wednesday"));

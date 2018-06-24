@@ -74,7 +74,9 @@ public class BoardTestSuite {
         List<TaskList> undoneTasks = new ArrayList<>();
         undoneTasks.add(new TaskList("To do"));
         undoneTasks.add(new TaskList("In progress"));
-        List<Task> tasks = project.getTaskLists().stream().filter(undoneTasks::contains).flatMap(tl -> tl.getTasks().stream()).filter(t -> t.getDeadline().isBefore(LocalDate.now())).collect(toList());
+        List<Task> tasks = project.getTaskLists().stream()
+                .filter(undoneTasks::contains).flatMap(tl -> tl.getTasks().stream())
+                .filter(t -> t.getDeadline().isBefore(LocalDate.now())).collect(toList());
 
         //Then
         Assert.assertEquals(1, tasks.size());

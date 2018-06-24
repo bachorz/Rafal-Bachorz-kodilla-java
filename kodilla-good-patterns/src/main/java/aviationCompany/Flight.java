@@ -1,13 +1,13 @@
-package AviationCompany;
+package aviationCompany;
 
 import java.util.Objects;
 
 public class Flight {
 
-private String departureAirport;
-private String arrivalAirport;
-private String stopover;
-private String departureDay;
+    private String departureAirport;
+    private String arrivalAirport;
+    private String stopover;
+    private String departureDay;
 
     public Flight(String departureAirport, String arrivalAirport, String stopover, String departureDay) {
         this.departureAirport = departureAirport;
@@ -37,7 +37,8 @@ private String departureDay;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport) && Objects.equals(stopover, flight.stopover);
+        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport)
+                && Objects.equals(stopover, flight.stopover);
     }
 
     @Override
@@ -48,6 +49,7 @@ private String departureDay;
 
     @Override
     public String toString() {
-        return "Flight{" + "departureAirport='" + departureAirport + '\'' + ", arrivalAirport='" + arrivalAirport + '\'' + ", stopover='" + stopover + '\'' + ", departureDay='" + departureDay + '\'' + '}';
+        return "Flight{" + "departureAirport = '" + departureAirport + '\'' + ", arrivalAirport = '" + arrivalAirport
+                + '\'' + ", stopover = '" + stopover + '\'' + ", departureDay = '" + departureDay + '\'' + "."+'}';
     }
 }
