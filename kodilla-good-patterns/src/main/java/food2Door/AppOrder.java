@@ -3,20 +3,20 @@ package food2Door;
 import food2Door.informationService.InformationService;
 import food2Door.informationService.MailService;
 
+import java.util.List;
+import java.util.Map;
+
 public class AppOrder {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        ManufacturerSelection manufacturerSelection = new ManufacturerSelection();
+        OrdersFactory ordersFactory = new OrdersFactory();
+        List<OrderCard> result = ordersFactory.getOrders();
 
-        boolean result4 = manufacturerSelection.verificationOfImplementation();
-        InformationService informationService = new MailService();
+        OrderService orderService = new OrderService(new MailService());
+        Map<OrderCard, InformationService> order = orderService.orderProcessor(result);
 
-        if(result4){
-            informationService.inform();
-        }else {
-            informationService.informNegativ();
-        }
-        manufacturerSelection.orderConfirmation();
+        System.out.println(order.entrySet());
+
     }
 }

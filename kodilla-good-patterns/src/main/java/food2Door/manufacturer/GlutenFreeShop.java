@@ -1,21 +1,20 @@
 package food2Door.manufacturer;
 
-import food2Door.FillTheOrder;
-import food2Door.ManufacturerSelection;
-import food2Door.OrderCard;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GlutenFreeShop implements ManufacturerService {
 
-    public void process() {
+    public List<ProductInStock> process() {
 
-        FillTheOrder fillTheOrder= new FillTheOrder();
-        OrderCard orderCard = fillTheOrder.completing();
+        List<ProductInStock> listProductsGlutenFreeShop = new ArrayList<>();
+        listProductsGlutenFreeShop.add(new ProductInStock("Apples", "GlutenFreeShop", 3.10, 10));
+        listProductsGlutenFreeShop.add(new ProductInStock("Sour cream", "GlutenFreeShop", 3.10, 2));
+        listProductsGlutenFreeShop.add(new ProductInStock("Orange juice", "GlutenFreeShop", 2.5, 3));
+        listProductsGlutenFreeShop.add( new ProductInStock("Milk", "GlutenFreeShop", 5.00, 11));
+        listProductsGlutenFreeShop.add(new ProductInStock("Butter", "GlutenFreeShop", 6.00, 3));
+        listProductsGlutenFreeShop.add(new ProductInStock("Rolls", "GlutenFreeShop", 1.00, 6));
 
-        ManufacturerSelection manufacturerSelection = new ManufacturerSelection();
-        ProductInStock productInStock = manufacturerSelection.selection();
-
-        System.out.println("Here, GlutenFreeShop order: " + productInStock.getProductNameInStock() +  ", pieces: " + orderCard.getQuantityOfPieces() +
-                " has been sent. The payment amount is "  + (productInStock.getPrice() * orderCard.getQuantityOfPieces()) + ". Delivery address: " +
-                orderCard.getRecipientOfDelivery());
+        return listProductsGlutenFreeShop;
     }
 }

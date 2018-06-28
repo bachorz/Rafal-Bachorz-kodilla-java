@@ -1,21 +1,20 @@
 package food2Door.manufacturer;
 
-import food2Door.FillTheOrder;
-import food2Door.ManufacturerSelection;
-import food2Door.OrderCard;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HealthyShop implements ManufacturerService{
 
-    public void process() {
-        FillTheOrder fillTheOrder= new FillTheOrder();
-        OrderCard orderCard = fillTheOrder.completing();
+    public List<ProductInStock> process() {
+        List<ProductInStock> listHealthyShop = new ArrayList<>();
+        listHealthyShop.add(new ProductInStock("Apples", "HealthyShop", 2.40, 5));
+        listHealthyShop.add(new ProductInStock("Tomatoes", "HealthyShop", 4.12, 5));
+        listHealthyShop.add(new ProductInStock("Orange juice", "HealthyShop", 2.1, 8));
+        listHealthyShop.add( new ProductInStock("Bananas", "HealthyShop", 5.50, 2));
+        listHealthyShop.add( new ProductInStock("Mineral water", "HealthyShop", 1.80, 0));
+        listHealthyShop.add(new ProductInStock("Tomato juice", "HealthyShop", 2.50, 12));
 
-        ManufacturerSelection manufacturerSelection = new ManufacturerSelection();
-        ProductInStock productInStock = manufacturerSelection.selection();
-
-        System.out.println("Here, HealthyShop order: " + productInStock.getProductNameInStock() +  ", pieces: " + orderCard.getQuantityOfPieces() +
-                " has been sent. The payment amount is "  + (productInStock.getPrice() * orderCard.getQuantityOfPieces()) + ". Delivery address: " +
-                orderCard.getRecipientOfDelivery());
+        return listHealthyShop;
     }
 
 }

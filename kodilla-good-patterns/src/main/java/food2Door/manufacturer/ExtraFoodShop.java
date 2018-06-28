@@ -1,22 +1,20 @@
 package food2Door.manufacturer;
 
-import food2Door.FillTheOrder;
-import food2Door.ManufacturerSelection;
-import food2Door.OrderCard;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExtraFoodShop implements ManufacturerService {
 
-    public void process() {
-        FillTheOrder fillTheOrder= new FillTheOrder();
-        OrderCard orderCard = fillTheOrder.completing();
+    public List<ProductInStock> process() {
+        List<ProductInStock> listProductsExtraFoodShop = new ArrayList<>();
+        listProductsExtraFoodShop.add(new ProductInStock("Apples", "ExtraFoodShop", 2.90, 10));
+        listProductsExtraFoodShop.add(new ProductInStock("Tomatoes", "ExtraFoodShop", 4.10, 5));
+        listProductsExtraFoodShop.add(new ProductInStock("Orange juice", "ExtraFoodShop", 2.0, 8));
+        listProductsExtraFoodShop.add(new ProductInStock("Bananas", "ExtraFoodShop", 5.00, 11));
+        listProductsExtraFoodShop.add(new ProductInStock("Butter", "ExtraFoodShop", 6.00, 3));
+        listProductsExtraFoodShop.add(new ProductInStock("Tomato juice", "ExtraFoodShop", 2.50, 4));
 
-        ManufacturerSelection manufacturerSelection = new ManufacturerSelection();
-        ProductInStock productInStock = manufacturerSelection.selection();
-
-        System.out.println("Here, ExtraFoodShop order: " + productInStock.getProductNameInStock() +  ", pieces: " + orderCard.getQuantityOfPieces() +
-                " has been sent. The payment amount is "  + (productInStock.getPrice() * orderCard.getQuantityOfPieces()) + ". Delivery address: " +
-        orderCard.getRecipientOfDelivery());
-
+        return listProductsExtraFoodShop;
     }
 
 }
