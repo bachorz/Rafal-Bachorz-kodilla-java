@@ -9,18 +9,18 @@ public final class Base {
 
     public Base() {
 
-        listOfflights.add(new Flight("Gdansk", "Wroclaw", "Warszawa", "Monday"));
-        listOfflights.add(new Flight("Wroclaw", "Warszawa", "non-stop flight", "Monday"));
-        listOfflights.add(new Flight("Gdansk", "Wroclaw", "Krakow", "Tuesday"));
-        listOfflights.add(new Flight("Gdansk", "Wroclaw", "non-stop flight", "Wednesday"));
-        listOfflights.add(new Flight("Wroclaw", "Gdansk", "Krakow", "Wednesday"));
-        listOfflights.add(new Flight("Gdansk", "Wroclaw", "Krakow", "Thursday"));
-        listOfflights.add(new Flight("Gdansk", "Wroclaw", "Poznan", "Friday"));
-        listOfflights.add(new Flight("Warszawa", "Wroclaw", "non-stop flight", "Saturday"));
-        listOfflights.add(new Flight("Gdansk", "Warszawa", "non-stop flight", "Sunday"));
+        listOfflights.add(new Flight("Gdansk", "Wroclaw", "Monday"));
+        listOfflights.add(new Flight("Wroclaw", "Warszawa","Monday"));
+        listOfflights.add(new Flight("Gdansk", "Wroclaw",  "Tuesday"));
+        listOfflights.add(new Flight("Gdansk", "Krakow",  "Wednesday"));
+        listOfflights.add(new Flight("Krakow", "Warszawa",  "Wednesday"));
+        listOfflights.add(new Flight("Gdansk", "Wroclaw",  "Thursday"));
+        listOfflights.add(new Flight("Gdansk", "Wroclaw",  "Friday"));
+        listOfflights.add(new Flight("Warszawa", "Wroclaw",  "Saturday"));
+        listOfflights.add(new Flight("Gdansk", "Warszawa",  "Sunday"));
     }
 
-    public List<Flight> getList() {
+    public List<Flight> getFlights() {
         return new ArrayList<>(listOfflights);
     }
 }

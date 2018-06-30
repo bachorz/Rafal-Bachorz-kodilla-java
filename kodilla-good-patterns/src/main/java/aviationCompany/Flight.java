@@ -6,13 +6,11 @@ public class Flight {
 
     private String departureAirport;
     private String arrivalAirport;
-    private String stopover;
     private String departureDay;
 
-    public Flight(String departureAirport, String arrivalAirport, String stopover, String departureDay) {
+    public Flight(String departureAirport, String arrivalAirport, String departureDay) {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
-        this.stopover = stopover;
         this.departureDay = departureDay;
     }
 
@@ -24,10 +22,6 @@ public class Flight {
         return arrivalAirport;
     }
 
-    public String getStopover() {
-        return stopover;
-    }
-
     public String getDepartureDay() {
         return departureDay;
     }
@@ -37,19 +31,17 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport)
-                && Objects.equals(stopover, flight.stopover);
+        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport) && Objects.equals(departureDay, flight.departureDay);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(departureAirport, arrivalAirport, stopover);
+        return Objects.hash(departureAirport, arrivalAirport, departureDay);
     }
 
     @Override
     public String toString() {
-        return "Flight{" + "departureAirport = '" + departureAirport + '\'' + ", arrivalAirport = '" + arrivalAirport
-                + '\'' + ", stopover = '" + stopover + '\'' + ", departureDay = '" + departureDay + '\'' + "."+'}';
+        return "Flight: " + "departureAirport ='" + departureAirport + '\'' + ", arrivalAirport='" + arrivalAirport + '\'' + ", departureDay='" + departureDay + '\'' + '}';
     }
 }
