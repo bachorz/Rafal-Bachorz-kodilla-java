@@ -5,42 +5,41 @@ import food2Door.informationService.InformationService;
 import food2Door.manufacturer.Manufacturers;
 import food2Door.manufacturer.ProductInStock;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OrderService {
 
-
     private InformationService informationService;
-    Manufacturers manufacturers = new Manufacturers();
+    private Manufacturers manufacturers;
 
-    public OrderService(InformationService informationService){
+    public OrderService(final InformationService informationService, final Manufacturers manufacturers) {
         this.informationService = informationService;
-
+        this.manufacturers = manufacturers;
     }
 
-    public Map<OrderCard, InformationService> orderProcessor(List<OrderCard> orders) {
+    public Map<OrderCard, String> orderProcessor(List<OrderCard> orders) {
 
-        Map<OrderCard, InformationService> result = new HashMap<>();
+        Map<OrderCard, String> result = new HashMap<>();
 
         for (int i = 0; i < orders.size(); i++) {
+            final OrderCard currentOrder = orders.get(i);
             ProductInStock order = manufacturers.getManufacturers().entrySet().stream()
                     .flatMap(s -> s.getValue().stream())
-                    .filter(s -> s.getProductNameInStock().equals(orders.get(0).getProductName()))
-                    .filter(s -> s.getQuantityInStock() >= orders.get(0).getQuantityOfPieces())
+                    .filter(s -> s.getProductNameInStock().equals(currentOrder.getProductName()))
+                    .filter(s -> s.getQuantityInStock() >= currentOrder.getQuantityOfPieces())
                     .min(Comparator.comparingDouble(ProductInStock::getPrice))
                     .orElse(null);
-
             if (order == null) {
-                informationService.informNegativ();
-
-            } else {
-                informationService.inform();
+                result.put(orders.get(i), informationService.informNegativ());
+            }else{
+                result.put(orders.get(i), informationService.infor());
             }
-            result.put(orders.get(i), informationService);
         }
         return result;
     }
 }
+
+
+
+
+

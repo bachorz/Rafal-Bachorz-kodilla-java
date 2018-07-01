@@ -2,33 +2,17 @@ package food2Door.informationService;
 
 public class MailService implements InformationService {
 
-//    FillTheOrder fillTheOrder= new FillTheOrder();
-//    OrderCard orderCard = fillTheOrder.completing();
+    @Override
+    public String infor(){
 
-    public void inform(){
+        return "\nThe order has been sent \n";
+    }
+    @Override
+    public String informNegativ(){
 
-        System.out.println("The order has been sent");
+        System.out.println("\nThe order has not been processed \n");
+
+        return "\nThe order has not been processed \n";
     }
 
-    public void informNegativ(){
-
-//        ProductBase productBase = new ProductBase();
-//        FillTheOrder fillTheOrder = new FillTheOrder();
-//        OrderCard orderCard = fillTheOrder.completing();
-//
-//        ProductInStock result5 = productBase.getProducts().entrySet().stream()
-//                .flatMap(s -> s.getValue().stream())
-//                .filter(s -> s.getProductNameInStock() == orderCard.getProductName())
-//                .max(Comparator.comparingInt(ProductInStock::getQuantityInStock))
-//                .orElse(null);
-//
-//        int maxQuantityInStock = result5.getQuantityInStock();
-//
-        System.out.println("The order has not been processed");
-    }
-
-    public  void closingTheOrder(){
-
-        System.out.println("Closes the order.");
-    }
 }

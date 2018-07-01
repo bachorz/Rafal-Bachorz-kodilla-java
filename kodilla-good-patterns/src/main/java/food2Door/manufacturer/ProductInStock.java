@@ -7,7 +7,6 @@ public class ProductInStock {
     private double price;
     private int quantityInStock;
 
-
     public ProductInStock(String productNameInStock, String manufacturerName, double price, int quantityInStock) {
         this.productNameInStock = productNameInStock;
         this.manufacturerName = manufacturerName;
@@ -30,8 +29,7 @@ public class ProductInStock {
     public int getQuantityInStock() {
         return quantityInStock;
     }
-    
 
-    }
+}
 
 

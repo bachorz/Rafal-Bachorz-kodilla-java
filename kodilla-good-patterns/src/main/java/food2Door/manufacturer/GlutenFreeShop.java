@@ -3,7 +3,7 @@ package food2Door.manufacturer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GlutenFreeShop implements ManufacturerService {
+public class GlutenFreeShop implements Manufacturer {
 
     public List<ProductInStock> process() {
 

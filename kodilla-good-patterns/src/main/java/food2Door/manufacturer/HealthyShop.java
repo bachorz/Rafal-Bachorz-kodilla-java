@@ -3,7 +3,7 @@ package food2Door.manufacturer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HealthyShop implements ManufacturerService{
+public class HealthyShop implements Manufacturer{
 
     public List<ProductInStock> process() {
         List<ProductInStock> listHealthyShop = new ArrayList<>();
@@ -16,5 +16,4 @@ public class HealthyShop implements ManufacturerService{
 
         return listHealthyShop;
     }
-
 }

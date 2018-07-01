@@ -1,7 +1,7 @@
 package food2Door;
 
-import food2Door.informationService.InformationService;
 import food2Door.informationService.MailService;
+import food2Door.manufacturer.Manufacturers;
 
 import java.util.List;
 import java.util.Map;
@@ -13,10 +13,13 @@ public class AppOrder {
         OrdersFactory ordersFactory = new OrdersFactory();
         List<OrderCard> result = ordersFactory.getOrders();
 
-        OrderService orderService = new OrderService(new MailService());
-        Map<OrderCard, InformationService> order = orderService.orderProcessor(result);
+        Manufacturers manufacturers = new Manufacturers();
 
-        System.out.println(order.entrySet());
+        OrderService orderService = new OrderService(new MailService(), manufacturers);
+        Map<OrderCard, String> order = orderService.orderProcessor(result);
 
+        for(Map.Entry<OrderCard, String> entry : order.entrySet()) {
+            System.out.println(entry);
+        }
     }
 }
