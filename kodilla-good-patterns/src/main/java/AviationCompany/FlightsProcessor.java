@@ -30,9 +30,9 @@ public class FlightsProcessor {
                 .collect(Collectors.toList());
     }
 
-    public List<String> flightsWithStopover(String departure, String arrival) {
+    public List<Flight> flightsWithStopover(String departure, String arrival) {
 
-        List<String> listWithStopove = new ArrayList<>();
+        List<Flight> listWithStopove = new ArrayList<>();
         List<Flight> listFrom = flightsFrom(departure);
         List<Flight> listTo = flightsTo(arrival);
 
@@ -41,8 +41,7 @@ public class FlightsProcessor {
             for (Flight flightTo : listTo) {
                 if(flightFrom.getArrivalAirport().equals(flightTo.getDepartureAirport()) &&
                         flightFrom.getDepartureDay().equals(flightTo.getDepartureDay())) {
-                    listWithStopove.add("Flight: " + flightFrom.getDepartureAirport() + " - transfer: " + flightFrom.getArrivalAirport() + " - "
-                            + flightTo.getArrivalAirport() + ", day: " + flightFrom.getDepartureDay());
+                    listWithStopove.add(flightTo);
                 }
             }
         }

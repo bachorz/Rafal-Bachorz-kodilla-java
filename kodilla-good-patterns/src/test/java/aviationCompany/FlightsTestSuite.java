@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -93,19 +92,18 @@ public class FlightsTestSuite {
         Base base = new Base();
         FlightSearchParameters flightSearchParameters = new FlightSearchParameters("Gdansk", "Warszawa");
         FlightsProcessor flightsProcessor = new FlightsProcessor(base);
+        List<Flight> resultA = new ArrayList<>();
+        resultA.add(new Flight("Wroclaw", "Warszawa", "Monday"));
+        resultA.add(new Flight("Krakow", "Warszawa", "Wednesday"));
 
         //When
-        List<String> result = flightsProcessor.flightsWithStopover(flightSearchParameters.getDeparture(), flightSearchParameters.getArrival());
-        int a = IntStream.range(0, result.size())
-                .filter(s -> result.get(s).contains("Warszawa"))
-                .map(s -> 1)
-                .sum();
+        List<Flight> resultB = flightsProcessor.flightsWithStopover(flightSearchParameters.getDeparture(), flightSearchParameters.getArrival());
 
         System.out.println("ALL FLIGHTS WITH STOPOVER");
-        result.forEach(System.out::println);
+        resultB.forEach(System.out::println);
 
         //Then
-        assertEquals(2, a);
+        assertEquals(resultA, resultB);
     }
 }
 
