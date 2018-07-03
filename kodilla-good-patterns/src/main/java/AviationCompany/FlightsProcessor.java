@@ -43,7 +43,6 @@ public class FlightsProcessor {
                 if(flightFrom.getArrivalAirport().equals(flightTo.getDepartureAirport()) &&
                         flightFrom.getDepartureDay().equals(flightTo.getDepartureDay())) {
                    listWithStopover.add(Arrays.asList(flightFrom, flightTo));
-
                 }
             }
         }
