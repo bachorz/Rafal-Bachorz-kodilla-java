@@ -92,12 +92,19 @@ public class FlightsTestSuite {
         Base base = new Base();
         FlightSearchParameters flightSearchParameters = new FlightSearchParameters("Gdansk", "Warszawa");
         FlightsProcessor flightsProcessor = new FlightsProcessor(base);
-        List<Flight> resultA = new ArrayList<>();
-        resultA.add(new Flight("Wroclaw", "Warszawa", "Monday"));
-        resultA.add(new Flight("Krakow", "Warszawa", "Wednesday"));
+        List<List<Flight>> resultA = new ArrayList<>();
+        List<Flight> flightsA = new ArrayList<>();
+        List<Flight> flightsB = new ArrayList<>();
+        flightsA.add(new Flight("Gdansk", "Wroclaw", "Monday"));
+        flightsA.add(new Flight("Wroclaw", "Warszawa", "Monday"));
+        flightsB.add(new Flight("Gdansk", "Krakow", "Wednesday"));
+        flightsB.add(new Flight("Krakow", "Warszawa", "Wednesday"));
+
+        resultA.add(flightsA);
+        resultA.add(flightsB);
 
         //When
-        List<Flight> resultB = flightsProcessor.flightsWithStopover(flightSearchParameters.getDeparture(), flightSearchParameters.getArrival());
+        List<List<Flight>> resultB = flightsProcessor.flightsWithStopover(flightSearchParameters.getDeparture(), flightSearchParameters.getArrival());
 
         System.out.println("ALL FLIGHTS WITH STOPOVER");
         resultB.forEach(System.out::println);

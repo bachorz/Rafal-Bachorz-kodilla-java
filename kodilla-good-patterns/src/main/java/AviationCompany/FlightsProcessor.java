@@ -1,6 +1,7 @@
 package aviationCompany;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,9 +31,9 @@ public class FlightsProcessor {
                 .collect(Collectors.toList());
     }
 
-    public List<Flight> flightsWithStopover(String departure, String arrival) {
+    public List<List<Flight>> flightsWithStopover(String departure, String arrival) {
 
-        List<Flight> listWithStopove = new ArrayList<>();
+        List<List<Flight>> listWithStopover = new ArrayList<>();
         List<Flight> listFrom = flightsFrom(departure);
         List<Flight> listTo = flightsTo(arrival);
 
@@ -41,11 +42,12 @@ public class FlightsProcessor {
             for (Flight flightTo : listTo) {
                 if(flightFrom.getArrivalAirport().equals(flightTo.getDepartureAirport()) &&
                         flightFrom.getDepartureDay().equals(flightTo.getDepartureDay())) {
-                    listWithStopove.add(flightTo);
+                   listWithStopover.add(Arrays.asList(flightFrom, flightTo));
+
                 }
             }
         }
-        return listWithStopove;
+        return listWithStopover;
     }
 }
 

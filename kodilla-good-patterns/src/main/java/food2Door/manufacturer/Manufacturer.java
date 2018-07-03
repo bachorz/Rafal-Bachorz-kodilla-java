@@ -1,8 +1,13 @@
 package food2Door.manufacturer;
 
-import java.util.List;
+import food2Door.OrderCard;
+
+import java.math.BigDecimal;
 
 public interface Manufacturer{
 
-    List<ProductInStock> process();
+    boolean process(OrderCard currentOrder);
+    boolean checkInStock(String productName);
+    BigDecimal getProductPrice();
+
 }
