@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 public interface Manufacturer{
 
     boolean process(OrderCard currentOrder);
-    boolean checkInStock(String productName);
+    boolean checkInStock(String productName, int orderedQuantity);
     BigDecimal getProductPrice();
-
 }
