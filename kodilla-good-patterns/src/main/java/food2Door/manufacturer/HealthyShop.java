@@ -13,14 +13,14 @@ public class HealthyShop implements Manufacturer{
     public void addToStock(ProductInStock productInStock, Integer inStock) {
         Integer inStockCurrent = stock.get(productInStock);
 
-        if (productInStock.getManufacturerName().equals("HealthyShop")) {
+       if (productInStock.getManufacturerName().equals("HealthyShop")) {
             if (inStockCurrent == null) {
                 stock.put(productInStock, inStockCurrent);
             } else {
                 stock.put(productInStock, inStockCurrent + inStock);
             }
         }
-    }
+   }
 
 
     public boolean process(OrderCard currentOrder) {
@@ -41,9 +41,10 @@ public class HealthyShop implements Manufacturer{
     @Override
     public BigDecimal getProductPrice() {
         BigDecimal price = null;
-        for(Map.Entry<ProductInStock, Integer> entry : stock.entrySet()) {
+        for (Map.Entry<ProductInStock, Integer> entry : stock.entrySet()) {
             price = entry.getKey().getPrice();
         }
+
         return price;
     }
 }

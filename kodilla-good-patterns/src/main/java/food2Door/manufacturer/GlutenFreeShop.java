@@ -21,10 +21,11 @@ public class GlutenFreeShop implements Manufacturer {
                 stock.put(productInStock, inStockCurrent + inStock);
             }
         }
-    }
+   }
 
 
     public boolean process(OrderCard currentOrder) {
+
         stock.entrySet().stream()
                 .map(s -> s.getValue()-currentOrder.getQuantityOfPieces());
         return true;
@@ -48,7 +49,6 @@ public class GlutenFreeShop implements Manufacturer {
         }
 
         return price;
-
     }
 }
 

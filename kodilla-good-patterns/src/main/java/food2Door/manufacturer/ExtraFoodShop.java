@@ -21,10 +21,11 @@ public class ExtraFoodShop implements Manufacturer {
                 stock.put(productInStock, inStockCurrent + inStock);
             }
         }
-    }
+   }
 
     public boolean process(OrderCard currentOrder) {
-        stock.entrySet().stream()
+
+                stock.entrySet().stream()
                 .map(s -> s.getValue()-currentOrder.getQuantityOfPieces());
         return true;
     }
@@ -41,10 +42,10 @@ public class ExtraFoodShop implements Manufacturer {
     @Override
     public BigDecimal getProductPrice() {
         BigDecimal price = null;
-        for(Map.Entry<ProductInStock, Integer> entry : stock.entrySet()) {
+        for (Map.Entry<ProductInStock, Integer> entry : stock.entrySet()) {
             price = entry.getKey().getPrice();
         }
 
-      return price;
+        return price;
     }
 }
