@@ -1,7 +1,6 @@
-package com.kodilla.spring.com.kodilla.spring.forum;
+package com.kodilla.spring.forum;
 
 
-import com.kodilla.spring.forum.ForumUser;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
+
 @SpringBootTest
 public class ForumUserTestSuite {
 
@@ -20,9 +20,9 @@ public class ForumUserTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
         ForumUser forumUser = context.getBean(ForumUser.class);
-    //When
+        //When
         String name = forumUser.getUsername();
-                //Then
+        //Then
         Assert.assertEquals("John Smith", name);
     }
 }

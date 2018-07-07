@@ -14,30 +14,36 @@ public class ExtraFoodShop implements Manufacturer {
     public void addToStock(ProductInStock productInStock, Integer inStock) {
         Integer inStockCurrent = stock.get(productInStock);
 
-        if (productInStock.getManufacturerName().equals("ExtraFoodShop")) {
             if (inStockCurrent == null) {
-                stock.put(productInStock, inStockCurrent);
+                stock.put(productInStock, inStock);
             } else {
                 stock.put(productInStock, inStockCurrent + inStock);
             }
         }
-   }
 
     public boolean process(OrderCard currentOrder) {
-
                 stock.entrySet().stream()
                 .map(s -> s.getValue()-currentOrder.getQuantityOfPieces());
         return true;
     }
 
-   public boolean checkInStock(String productName, int orderedQuantity) {
-       Integer numberInStock = stock.get(productName);
-       if (numberInStock == null) {
-           return false;
-       }else{
-           return numberInStock >= orderedQuantity;
-       }
-   }
+    public boolean checkInStock(String productName, int orderedQuantity) {
+
+        OrderCard currentOrder = addToStock();
+        orderedQuantity = currentOrder.getQuantityOfPieces();
+
+
+        ProductInStock productInStock = null;
+        productName = productInStock.getProductNameInStock();
+
+
+        Integer numberInStock = stock.get(new ProductInStock(productName, productInStock.getPrice()));
+        if (numberInStock == null) {
+            return false;
+        } else {
+            return numberInStock >= orderedQuantity;
+        }
+    }
 
     @Override
     public BigDecimal getProductPrice() {
