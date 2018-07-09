@@ -11,6 +11,12 @@ public class ExtraFoodShop implements Manufacturer {
 
     private Map<ProductInStock, Integer> stock = new HashMap<ProductInStock, Integer>();
 
+//    @Override
+//    public ProductInStock(String productNameInStock) {
+//        this.productNameInStock = productNameInStock;
+//    }
+
+
     public void addToStock(ProductInStock productInStock, Integer inStock) {
         Integer inStockCurrent = stock.get(productInStock);
 
@@ -22,22 +28,24 @@ public class ExtraFoodShop implements Manufacturer {
         }
 
     public boolean process(OrderCard currentOrder) {
-                stock.entrySet().stream()
-                .map(s -> s.getValue()-currentOrder.getQuantityOfPieces());
-        return true;
+        ProductInStock product = null;
+        if (checkInStock(currentOrder.getProductName(), currentOrder.getQuantityOfPieces())) {
+            Integer inStockCurrent = stock.get(new ProductInStock(currentOrder.getProductName(), product.getPrice()));
+            stock.put(product, inStockCurrent - currentOrder.getQuantityOfPieces());
+            return true;
+        } else {
+            return false;
+        }
     }
+
 
     public boolean checkInStock(String productName, int orderedQuantity) {
 
-        OrderCard currentOrder = addToStock();
-        orderedQuantity = currentOrder.getQuantityOfPieces();
+ProductInStock product = null;
 
-
-        ProductInStock productInStock = null;
-        productName = productInStock.getProductNameInStock();
-
-
-        Integer numberInStock = stock.get(new ProductInStock(productName, productInStock.getPrice()));
+       // BigDecimal price = product.getPrice();
+        //productName = product.getProductNameInStock();
+        Integer numberInStock = stock.get(new ProductInStock(productName, product.getPrice()));
         if (numberInStock == null) {
             return false;
         } else {
@@ -47,11 +55,13 @@ public class ExtraFoodShop implements Manufacturer {
 
     @Override
     public BigDecimal getProductPrice() {
-        BigDecimal price = null;
-        for (Map.Entry<ProductInStock, Integer> entry : stock.entrySet()) {
-            price = entry.getKey().getPrice();
-        }
-
-        return price;
+        OrderCard orderCard = null;
+        String productName = orderCard.getProductName();
+        return stock.entrySet()
+                .stream()
+                .filter(p -> p.getKey().getProductNameInStock().equals(productName))
+                .map(p -> p.getKey().getPrice())
+                .findFirst()
+                .orElse(null);
     }
 }
