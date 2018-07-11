@@ -17,6 +17,7 @@ public class BigmacTestSuite {
                 .burgers(3)
                 .ingredients(Options.INGREDIENTS_CHEESE)
                 .ingredients(Options.INGREDIENTS_MUSHROOMS)
+                .ingredients(Options.INGREDIENTS_ONION)
                 .ingredients(Options.INGREDIENTS_LETTUCE)
                 .build();
         System.out.println(bigmac);
@@ -28,8 +29,8 @@ public class BigmacTestSuite {
         int howManyBurgers = bigmac.getBurgers();
 
         //Then
-        Assert.assertEquals(3, howManyIngredients);
-        Assert.assertEquals(bigmac.getIngredients(), Arrays.asList("Cheese", "Mushrooms", "Lettuce"));
+        Assert.assertEquals(4, howManyIngredients);
+        Assert.assertEquals(bigmac.getIngredients(), Arrays.asList("Cheese", "Mushrooms", "Onion", "Lettuce"));
         Assert.assertEquals("Barbecue", howSauce);
         Assert.assertEquals("Bun with sesame", howBun);
         Assert.assertEquals(3,howManyBurgers);

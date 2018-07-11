@@ -14,5 +14,6 @@ public class Options {
     public static final String  INGREDIENTS_CUCUMBER = "Cucumber";
     public static final String  INGREDIENTS_CHEESE = "Cheese";
     public static final String  INGREDIENTS_LETTUCE = "Lettuce";
+    public static final String  INGREDIENTS_SHRIMP= "Shrimp";
 
 }
