@@ -20,11 +20,15 @@
 //            }
 //        }
 //
-//
 //    public boolean process(OrderCard currentOrder) {
-//        stock.entrySet().stream()
-//                .map(s -> s.getValue()-currentOrder.getQuantityOfPieces());
-//        return true;
+//        if (checkInStock(currentOrder.getProductName(), currentOrder.getQuantityOfPieces()))  {
+//            ProductInStock product = new ProductInStock(currentOrder.getProductName());
+//            Integer inStockCurrent = stock.get(product);
+//            stock.put(product, inStockCurrent - currentOrder.getQuantityOfPieces());
+//            return true;
+//        } else {
+//            return false;
+//        }
 //    }
 //
 //    public boolean checkInStock(String productName, int orderedQuantity) {
@@ -38,12 +42,14 @@
 //
 //    @Override
 //    public BigDecimal getProductPrice() {
-//        BigDecimal price = null;
-//        for (Map.Entry<ProductInStock, Integer> entry : stock.entrySet()) {
-//            price = entry.getKey().getPrice();
-//        }
-//
-//        return price;
+//        OrderCard orderCard = null;
+//        String productName = orderCard.getProductName();
+//        return stock.entrySet()
+//                .stream()
+//                .filter(p -> p.getKey().getProductNameInStock().equals(productName))
+//                .map(p -> p.getKey().getPrice())
+//                .findFirst()
+//                .orElse(null);
 //    }
 //}
 //

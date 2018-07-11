@@ -8,5 +8,5 @@ public interface Manufacturer{
 
     boolean process(OrderCard currentOrder);
     boolean checkInStock(String productName, int orderedQuantity);
-    BigDecimal getProductPrice();
+    BigDecimal getProductPrice(String productName);
 }

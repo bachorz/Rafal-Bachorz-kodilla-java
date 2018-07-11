@@ -30,12 +30,8 @@ public class ShoppingTask implements Task {
 
     @Override
     public boolean isTaskExecuted () {
-
-        for (Map.Entry<String, String> entry : taskCompleted.entrySet()) {
-            if (entry.getKey().equals(getTaskName())) {
-                return true;
-            }
-        }
-        return false;
+        return taskCompleted.entrySet()
+                .stream()
+                .anyMatch(e -> e.getKey().equals(getTaskName()));
     }
 }

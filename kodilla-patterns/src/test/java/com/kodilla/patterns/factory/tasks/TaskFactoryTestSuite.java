@@ -50,4 +50,18 @@ public class TaskFactoryTestSuite {
         Assert.assertTrue(drivingTask.isTaskExecuted());
     }
 
+    @Test
+    public void testFactoryUnknownTask () {
+
+        //Given
+        TaskFactory taskFactory = new TaskFactory();
+
+        //When
+        Task drivingTask = taskFactory.makeTask("Playing");
+        //drivingTask.executeTask();
+
+        //Then
+        Assert.assertNull(drivingTask);
+    }
+
 }

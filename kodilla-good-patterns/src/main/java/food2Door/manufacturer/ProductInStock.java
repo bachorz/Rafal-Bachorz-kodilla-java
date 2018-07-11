@@ -13,6 +13,10 @@ public class ProductInStock  {
         this.price = price;
     }
 
+    public ProductInStock(String productNameInStock) {
+        this.productNameInStock = productNameInStock;
+    }
+
     public String getProductNameInStock() {
         return productNameInStock;
     }

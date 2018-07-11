@@ -11,11 +11,6 @@ public class ExtraFoodShop implements Manufacturer {
 
     private Map<ProductInStock, Integer> stock = new HashMap<ProductInStock, Integer>();
 
-//    @Override
-//    public ProductInStock(String productNameInStock) {
-//        this.productNameInStock = productNameInStock;
-//    }
-
 
     public void addToStock(ProductInStock productInStock, Integer inStock) {
         Integer inStockCurrent = stock.get(productInStock);
@@ -28,9 +23,9 @@ public class ExtraFoodShop implements Manufacturer {
         }
 
     public boolean process(OrderCard currentOrder) {
-        ProductInStock product = null;
         if (checkInStock(currentOrder.getProductName(), currentOrder.getQuantityOfPieces())) {
-            Integer inStockCurrent = stock.get(new ProductInStock(currentOrder.getProductName(), product.getPrice()));
+            ProductInStock product = new ProductInStock(currentOrder.getProductName());
+            Integer inStockCurrent = stock.get(product);
             stock.put(product, inStockCurrent - currentOrder.getQuantityOfPieces());
             return true;
         } else {
@@ -41,11 +36,9 @@ public class ExtraFoodShop implements Manufacturer {
 
     public boolean checkInStock(String productName, int orderedQuantity) {
 
-ProductInStock product = null;
+        ProductInStock product = new ProductInStock(productName);
 
-       // BigDecimal price = product.getPrice();
-        //productName = product.getProductNameInStock();
-        Integer numberInStock = stock.get(new ProductInStock(productName, product.getPrice()));
+        Integer numberInStock = stock.get(product);
         if (numberInStock == null) {
             return false;
         } else {
@@ -54,9 +47,7 @@ ProductInStock product = null;
     }
 
     @Override
-    public BigDecimal getProductPrice() {
-        OrderCard orderCard = null;
-        String productName = orderCard.getProductName();
+    public BigDecimal getProductPrice(String productName) {
         return stock.entrySet()
                 .stream()
                 .filter(p -> p.getKey().getProductNameInStock().equals(productName))
