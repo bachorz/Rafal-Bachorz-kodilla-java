@@ -9,8 +9,8 @@ public class LibraryTestSuite {
     public void testGetBooks(){
 
         //given
-        Book book1 = new Book("Title1", "Kowalski",2010,05,02);
-        Book book2 = new Book("Title2", "Nowak", 2000, 03, 01);
+        Book book1 = new Book("Title1", "Kowalski",2010,5,2);
+        Book book2 = new Book("Title2", "Nowak", 2000, 3, 1);
         Book book3 = new Book("Title3", "Jurand", 1610, 11,15);
 
         Library library = new Library("nr 1");
