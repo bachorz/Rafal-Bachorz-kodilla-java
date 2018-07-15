@@ -6,21 +6,19 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class ExtraFoodShop implements Manufacturer {
 
     private Map<ProductInStock, Integer> stock = new HashMap<ProductInStock, Integer>();
 
-
     public void addToStock(ProductInStock productInStock, Integer inStock) {
         Integer inStockCurrent = stock.get(productInStock);
 
-            if (inStockCurrent == null) {
-                stock.put(productInStock, inStock);
-            } else {
-                stock.put(productInStock, inStockCurrent + inStock);
-            }
+        if (inStockCurrent == null) {
+            stock.put(productInStock, inStock);
+        } else {
+            stock.put(productInStock, inStockCurrent + inStock);
         }
+    }
 
     public boolean process(OrderCard currentOrder) {
         if (checkInStock(currentOrder.getProductName(), currentOrder.getQuantityOfPieces())) {
@@ -32,7 +30,6 @@ public class ExtraFoodShop implements Manufacturer {
             return false;
         }
     }
-
 
     public boolean checkInStock(String productName, int orderedQuantity) {
 

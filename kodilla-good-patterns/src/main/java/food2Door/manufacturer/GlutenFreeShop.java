@@ -8,9 +8,7 @@ import java.util.Map;
 
 public class GlutenFreeShop implements Manufacturer {
 
-
     private Map<ProductInStock, Integer> stock = new HashMap<ProductInStock, Integer>();
-
 
     public void addToStock(ProductInStock productInStock, Integer inStock) {
         Integer inStockCurrent = stock.get(productInStock);
@@ -32,7 +30,6 @@ public class GlutenFreeShop implements Manufacturer {
             return false;
         }
     }
-
 
     public boolean checkInStock(String productName, int orderedQuantity) {
 

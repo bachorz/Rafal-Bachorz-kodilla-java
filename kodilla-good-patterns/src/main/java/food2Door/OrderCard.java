@@ -28,7 +28,5 @@ public class OrderCard {
 
     public RecipientOfDelivery getRecipientOfDelivery() {
         return recipientOfDelivery;
-
-
     }
 }
