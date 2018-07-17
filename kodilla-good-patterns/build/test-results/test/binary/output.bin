@@ -1,0 +1,24 @@
+
+The test has been finished
+'ALL FLIGHTS FROM THE SELECTED AIRPORT
+VFlight: departureAirport ='Gdansk', arrivalAirport='Wroclaw', departureDay='Monday'}
+WFlight: departureAirport ='Gdansk', arrivalAirport='Wroclaw', departureDay='Tuesday'}
+XFlight: departureAirport ='Gdansk', arrivalAirport='Krakow', departureDay='Wednesday'}
+XFlight: departureAirport ='Gdansk', arrivalAirport='Wroclaw', departureDay='Thursday'}
+VFlight: departureAirport ='Gdansk', arrivalAirport='Wroclaw', departureDay='Friday'}
+WFlight: departureAirport ='Gdansk', arrivalAirport='Warszawa', departureDay='Sunday'}
+
+The test has been finished
+ALL DIRECT FLIGHTS
+WFlight: departureAirport ='Gdansk', arrivalAirport='Warszawa', departureDay='Sunday'}
+
+The test has been finished
+ALL FLIGHTS WITH STOPOVER
+°[Flight: departureAirport ='Gdansk', arrivalAirport='Wroclaw', departureDay='Monday'}, Flight: departureAirport ='Wroclaw', arrivalAirport='Warszawa', departureDay='Monday'}]
+´[Flight: departureAirport ='Gdansk', arrivalAirport='Krakow', departureDay='Wednesday'}, Flight: departureAirport ='Krakow', arrivalAirport='Warszawa', departureDay='Wednesday'}]
+
+The test has been finished
+%ALL FLIGHTS TO THE SELECTED AIRPORT
+XFlight: departureAirport ='Wroclaw', arrivalAirport='Warszawa', departureDay='Monday'}
+ZFlight: departureAirport ='Krakow', arrivalAirport='Warszawa', departureDay='Wednesday'}
+WFlight: departureAirport ='Gdansk', arrivalAirport='Warszawa', departureDay='Sunday'}
