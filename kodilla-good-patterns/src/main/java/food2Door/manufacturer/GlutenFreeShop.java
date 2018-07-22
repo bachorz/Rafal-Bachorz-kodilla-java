@@ -20,6 +20,7 @@ public class GlutenFreeShop implements Manufacturer {
         }
     }
 
+    @Override
     public boolean process(OrderCard currentOrder) {
         if (checkInStock(currentOrder.getProductName(), currentOrder.getQuantityOfPieces())) {
             ProductInStock product = new ProductInStock(currentOrder.getProductName());
@@ -31,6 +32,7 @@ public class GlutenFreeShop implements Manufacturer {
         }
     }
 
+    @Override
     public boolean checkInStock(String productName, int orderedQuantity) {
 
         ProductInStock product = new ProductInStock(productName);

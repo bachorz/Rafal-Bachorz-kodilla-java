@@ -11,14 +11,14 @@ public class AppOrder {
     public static void main(String[] args) {
 
         OrdersFactory ordersFactory = new OrdersFactory();
-        List<OrderCard> result = ordersFactory.getOrders();
+        List<OrderCard> orders = ordersFactory.getOrders();
 
         Manufacturers manufacturers = new Manufacturers();
 
         OrderService orderService = new OrderService(new MailService(), manufacturers);
-        Map<OrderCard, String> order = orderService.orderProcessor(result);
+        Map<OrderCard, String> results = orderService.orderProcessor(orders);
 
-        for(Map.Entry<OrderCard, String> entry : order.entrySet()) {
+        for(Map.Entry<OrderCard, String> entry : results.entrySet()) {
             System.out.println(entry);
         }
     }

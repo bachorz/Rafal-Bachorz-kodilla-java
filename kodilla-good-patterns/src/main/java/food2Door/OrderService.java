@@ -21,26 +21,28 @@ public class OrderService {
     }
 
     public Map<OrderCard, String> orderProcessor(List<OrderCard> orders) {
-
         Map<OrderCard, String> result = new HashMap<>();
-        for (int i = 0; i < orders.size(); i++) {
-            final OrderCard currentOrder = orders.get(i);
-            final Manufacturer manufacturer = manufacturers.getManufacturers().stream()
-                    .filter(m -> m.checkInStock(currentOrder.getProductName(), currentOrder.getQuantityOfPieces()))
-                    .min(Comparator.comparing(m -> m.getProductPrice(currentOrder.getProductName())))
-                    .orElse(null);
+        orders.forEach(currentOrder -> {
+            final Manufacturer manufacturer = findCheapestManufacturer(currentOrder.getProductName(), currentOrder.getQuantityOfPieces());
             if (manufacturer == null) {
-                result.put(orders.get(i), informationService.informNegativ());
+                result.put(currentOrder, informationService.informNegative());
             } else {
                 boolean orderResult = manufacturer.process(currentOrder);
                 if (orderResult) {
-                    result.put(orders.get(i), informationService.infor());
+                    result.put(currentOrder, informationService.inform());
                 } else {
-                    result.put(orders.get(i), informationService.informNegativ());
+                    result.put(currentOrder, informationService.informNegative());
                 }
             }
-        }
+        });
         return result;
+    }
+
+    private Manufacturer findCheapestManufacturer(String productName, int quantity) {
+        return manufacturers.getManufacturers().stream()
+                .filter(m -> m.checkInStock(productName, quantity))
+                .min(Comparator.comparing(m -> m.getProductPrice(productName)))
+                .orElse(null);
     }
 }
 

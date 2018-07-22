@@ -6,14 +6,11 @@ import java.util.List;
 
 public class Manufacturers {
 
-    ExtraFoodShop extraFoodShop = new  ExtraFoodShop();
-    GlutenFreeShop glutenFreeShop = new GlutenFreeShop();
-    HealthyShop healthyShop = new HealthyShop();
-
     public List<Manufacturer> getManufacturers(){
 
         List<Manufacturer> listOfProducers = new ArrayList<>();
 
+        ExtraFoodShop extraFoodShop = new  ExtraFoodShop();
         extraFoodShop.addToStock(new ProductInStock("Apples",  new BigDecimal("2.90")), 10);
         extraFoodShop.addToStock(new ProductInStock("Tomatoes", new BigDecimal("4.10")), 5);
         extraFoodShop.addToStock(new ProductInStock("Orange juice",  new BigDecimal("2.0")), 8);
@@ -22,6 +19,7 @@ public class Manufacturers {
         extraFoodShop.addToStock(new ProductInStock("Tomato juice", new BigDecimal("2.50")), 4);
         listOfProducers.add(extraFoodShop);
 
+        GlutenFreeShop glutenFreeShop = new GlutenFreeShop();
         glutenFreeShop.addToStock(new ProductInStock("Apples", new BigDecimal("3.10")), 10);
         glutenFreeShop.addToStock(new ProductInStock("Sour cream",  new BigDecimal("3.10")), 2);
         glutenFreeShop.addToStock(new ProductInStock("Orange juice",  new BigDecimal("2.5")), 3);
@@ -30,6 +28,7 @@ public class Manufacturers {
         glutenFreeShop.addToStock(new ProductInStock("Rolls",  new BigDecimal("1.00")), 6);
         listOfProducers.add(glutenFreeShop);
 
+        HealthyShop healthyShop = new HealthyShop();
         healthyShop.addToStock(new ProductInStock("Apples",  new BigDecimal("2.40")), 5);
         healthyShop.addToStock(new ProductInStock("Tomatoes", new BigDecimal("4.12")), 5);
         healthyShop.addToStock(new ProductInStock("Orange juice", new BigDecimal("2.1")), 8);
