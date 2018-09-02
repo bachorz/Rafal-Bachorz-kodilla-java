@@ -49,7 +49,7 @@ public class FacadeTest {
         Assert.assertEquals(1, listOfCompanies.size());
 
         //CleanUp
-        companyDao.deleteAll();
+        //companyDao.deleteAll();
     }
 
     @Test
@@ -74,7 +74,7 @@ public class FacadeTest {
         Assert.assertEquals(1, listOfEmployees.size());
 
         //Clean
-        employeeDao.deleteAll();
+        //employeeDao.deleteAll();
 
     }
 }
