@@ -36,11 +36,9 @@ public class FacadeTest {
         Company greyMatter = new Company("Grey Matter");
 
         companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
+
 
         //When
         List<Company> listOfCompanies = facade.companySearchProcess("Sof");
@@ -61,11 +59,8 @@ public class FacadeTest {
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
         employeeDao.save(johnSmith);
-        int johnSmithId = johnSmith.getId();
         employeeDao.save(stephanieClarckson);
-        int stephaniaClarcksonID = stephanieClarckson.getId();
         employeeDao.save(lindaKovalsky);
-        int lindaKovalskyId = lindaKovalsky.getId();
 
         //When
         List<Employee> listOfEmployees = facade.employeeSearchProcess("Smi");

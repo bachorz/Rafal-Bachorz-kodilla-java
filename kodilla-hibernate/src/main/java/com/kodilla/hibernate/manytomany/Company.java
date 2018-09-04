@@ -14,7 +14,7 @@ import java.util.List;
 
 @NamedQuery(
                 name = "Company.findCompanyByFragment",
-                query = "FROM Company WHERE name LIKE :ARG"
+                query = "FROM Company WHERE name LIKE CONCAT('%',:ARG, '%')"
         )
 
 

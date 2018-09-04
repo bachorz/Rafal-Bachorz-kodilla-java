@@ -25,10 +25,8 @@ public class Facade {
 
     public List<Company> companySearchProcess (final String fragmentName) throws SearchingProcessingException {
 
-        String arg = "%" + fragmentName + "%";
-        List<Company> resultOfSearch;
-        LOGGER.info("Searching companies by fragment name: " + arg);
-        resultOfSearch = companyDao.findCompanyByFragment(arg);
+        LOGGER.info("Searching companies by fragment name: " + fragmentName);
+        List<Company> resultOfSearch = companyDao.findCompanyByFragment(fragmentName);
         if (resultOfSearch.size() == 0) {
             LOGGER.error(SearchingProcessingException.ERR_COMPANY_NOT_FOUND);
             throw new SearchingProcessingException(SearchingProcessingException.ERR_COMPANY_NOT_FOUND);
@@ -42,10 +40,8 @@ public class Facade {
 
     public List<Employee> employeeSearchProcess (final String fragmentName) throws SearchingProcessingException {
 
-        String arg = "%" + fragmentName + "%";
-        List<Employee> resultOfSearch;
-        LOGGER.info("Searching employees by fragment last name: " + arg);
-        resultOfSearch = employeeDao.findEmployeeByFragment(arg);
+        LOGGER.info("Searching employees by fragment last name: " + fragmentName);
+        List<Employee> resultOfSearch = employeeDao.findEmployeeByFragment(fragmentName);
         if (resultOfSearch.size() == 0) {
             LOGGER.error(SearchingProcessingException.ERR_EMPLOYEE_NOT_FOUND);
             throw new SearchingProcessingException(SearchingProcessingException.ERR_EMPLOYEE_NOT_FOUND);
