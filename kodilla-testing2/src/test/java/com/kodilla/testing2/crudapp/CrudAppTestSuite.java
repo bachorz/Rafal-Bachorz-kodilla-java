@@ -30,9 +30,10 @@ public class CrudAppTestSuite {
 
     @Test
     public void shouldCreateTrelloCard() throws InterruptedException {
-        final String XPATH_TASK_NAME = "/html/body/main/section[1]/form/fieldset[1]/input";
-        final String XPATH_TASK_CONTENT = "//form/[contains(@action,\"createTask\")]/fieldset[2]/textarea";
-        final String XPATH_ADD_BUTTON = "//form/[contains(@action,\"createTask\")]/fieldset[3]/button";
+        final String XPATH_TASK_NAME = "//form/[contains(@action,\"createTask\")]/fieldset[1]/input";
+        final String XPATH_TASK_CONTENT = "//form[contains(@action, \"createTask\")]/fieldset[2]/textarea";
+        final String XPATH_ADD_BUTTON = "//form[contains(@action, \"createTask\")]/fieldset[3]/button";
+
         String taskName = "Task number " + generator.nextInt(100000);
         String taskContent = taskName + " content";
 
