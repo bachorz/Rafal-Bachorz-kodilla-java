@@ -4,7 +4,6 @@ import config.WebDriverConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,8 +61,8 @@ public class CrudAppTestSuite {
 
         while (!driver.findElement(By.xpath("//select[1]")).isDisplayed());
 
-//        WebDriverWait webDriverWait = new WebDriverWait(driver, 10, 2);
-//        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[1]")));
+    //    WebDriverWait wait = new WebDriverWait(driver, 6);
+      //  wait.until(ExpectedConditions.alertIsPresent());
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().equals(taskName))
@@ -78,8 +77,9 @@ public class CrudAppTestSuite {
                 });
 
         Thread.sleep(6000);
-        Alert clickAlert = driver.switchTo().alert();
-        clickAlert.accept();
+        driver.switchTo()
+                .alert()
+                .accept();
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
@@ -113,8 +113,8 @@ public class CrudAppTestSuite {
     private void deleteCrudAppTask (String taskName) {
         driver.navigate().refresh();
 
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 10, 2);
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[1]")));
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 10, 200);
+        webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[1]")));
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().equals(taskName))
